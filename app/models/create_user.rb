@@ -1,2 +1,2 @@
-class CreateUser < ApplicationRecord
+class CreateUser < ApplicationRecord # rubocop:disable Layout/EndOfLine
 end
