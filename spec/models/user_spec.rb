@@ -1,33 +1,38 @@
-require 'rails helper'
+require 'rails_helper'
 
-Rspec.describe User, type: :model do
+RSpec.describe User, type: :model do
   subject do
     User.new(
       name: 'Peter Emi',
       photo: 'https://example.com/test.jpg',
-      bio: 'Football player and Robotic engineer',
-      post_counter: 0
+      bio: 'Football player and Robotic Engineer.',
+      posts_counter: 0
     )
   end
 
-  describe 'validations' do
+  describe 'Validations' do
     it 'is valid with valid attributes' do
       expect(subject).to be_valid
     end
 
-    it 'is invalid without a name' do
+    it 'is not valid without a name' do
       subject.name = ''
-      expect(subject).not_to be_valid
+      expect(subject).to_not be_valid
     end
 
-    it 'is invalid when post_counter is not an integer' do
-      subject.post_counter = 'one'
-      expect(subject).not_to be_valid
+    it 'is valid without a photo' do
+      subject.photo = ''
+      expect(subject).to be_valid
     end
 
-    it 'is invalid when post_counter is less than 0' do
-      subject.post_counter = -1
-      expect(subject).not_to be_valid
+    it 'is not valid when posts_counter is not an integer' do
+      subject.posts_counter = 'asdf'
+      expect(subject).to_not be_valid
+    end
+
+    it 'is not valid when posts_counter is less than 0' do
+      subject.posts_counter = -1
+      expect(subject).to_not be_valid
     end
   end
 
@@ -36,7 +41,7 @@ Rspec.describe User, type: :model do
       5.times do |index|
         Post.create(
           title: "Post #{index}",
-          text: "Text post #{index}",
+          text: "This is the text for post #{index}",
           author: subject,
           comments_counter: 0,
           likes_counter: 0
@@ -44,7 +49,7 @@ Rspec.describe User, type: :model do
       end
     end
 
-    it 'should return the most recent posts' do
+    it 'should return the most recent 3 posts' do
       expect(subject.recent_posts.length).to eq(3)
     end
   end
