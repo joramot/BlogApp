@@ -116,3 +116,7 @@ a:hover {
 .post-content {
   padding: 10px;
 }
+
+.form-container {
+  padding: 0 5%;
+}
