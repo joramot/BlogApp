@@ -11,7 +11,7 @@
     </div>
     <div class="posts">
         <% @posts.each do |post| %>
-        <%= link_to "/users/#{@user.id}/posts/#{post.id}" do %>
+        <%= link_to user_post_path(@user, post) do %>
         <div class="post">
             <h2><%= post.title %></h2>
             <p><%= post.text %></p>
@@ -20,9 +20,9 @@
                 <p>Likes: <%= post.likes_counter %></p>
             </div>
         </div>
-        <% if post.comments.length > 0 %>
+        <% if post.comments_counter > 0 %>
         <div class="comments">
-            <% post.recent_comments.each do |comment| %>
+            <% post.comments.each do |comment| %>
                 <div class="comment">
                     <p><%= comment.user.name %>: <%= comment.text %></p>
                 </div>
