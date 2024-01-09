@@ -12,11 +12,12 @@ describe 'Users Show', type: :feature do
 
   let! :post2 do
     Post.create(author_id: user.id, title: 'Receiver wing position',
-                text: 'The wing receiver position requires a lot of strength and speed, it is a key position in the offense.')
+                text: 'The wing receiver position requires a lot of strength and speed.')
   end
 
   let! :post3 do
-    Post.create(author_id: user.id, title: 'Next season', text: 'The next spring summer 2024 season will be the opportunity to improve my statistics.')
+    Post.create(author_id: user.id, title: 'Next season',
+                text: 'The next spring summer 2024 season will be the opportunity to improve my statistics.')
   end
 
   let! :comment1 do

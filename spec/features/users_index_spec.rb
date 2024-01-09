@@ -4,7 +4,7 @@ RSpec.describe 'Users Index', type: :feature do
   before :each do
     author1 = User.create(name: 'Peter', photo: 'https://picsum.photos/100', bio: 'Football player')
     author2 = User.create(name: 'Tony', photo: 'https://picsum.photos/100', bio: 'Swimmer amateur')
-    Post.create(title: 'My life in football', text: 'I am a player in the youth category for the Linces FBA team in the receiver position.',
+    Post.create(title: 'My life in football', text: 'I am a player in the youth category for the Linces FBA team.',
                 author_id: author1.id)
     Post.create(title: 'The beginning as a swimmer',
                 text: 'training for university selection',
