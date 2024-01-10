@@ -48,27 +48,20 @@ describe 'Users Show', type: :feature do
     expect(page).to have_content('Next season')
   end
 
-<<<<<<< HEAD
   scenario "I can see a button that lets me view all of a user's posts." do
-    expect(page).to have_link('View all posts')
-  end
-
-  scenario "When I click a user's post, it redirects me to that post's show page." do
-    click_link 'My life in football'
-    expect(page).to have_content('My life in football')
-    expect(page).to have_content('I am a player in the youth category for the Linces FBA team.')
+    expect(page).to have_link('See all posts')
   end
 
   scenario "When I click to see all posts, it redirects me to the user's post's index page." do
-    click_link 'View all posts'
+    click_link 'See all posts'
     expect(page).to have_content('My life in football')
     expect(page).to have_content('Receiver wing position')
     expect(page).to have_content('Next season')
-=======
+  end
+
   scenario "When I click to see all posts, it redirects me to the user's post's index page" do
     find('a', text: 'See all posts').click
 
     expect(page).to have_current_path(user_posts_path(user.id))
->>>>>>> dfc6d4e88a81e912f2e504c216be545a91ebef5a
   end
 end

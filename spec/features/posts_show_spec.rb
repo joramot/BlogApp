@@ -22,4 +22,26 @@ describe 'Post show page', type: :feature do
   scenario 'I can see who wrote the post' do
     expect(page).to have_content('Jose')
   end
+
+  scenario 'I can see how many comments it has.' do
+    expect(page).to have_content('Comments: 2')
+  end
+
+  scenario 'I can see how many likes it has.' do
+    expect(page).to have_content('Likes: 2')
+  end
+
+  scenario 'I can see the post body.' do
+    expect(page).to have_content('Principal technologies Full Stack: JavaScript, HTML5 & CSS3')
+  end
+
+  scenario 'I can see the username of each commentor.' do
+    expect(page).to have_content('Peter Emi')
+    expect(page).to have_content('Tony')
+  end
+
+  scenario 'I can see the comment each commentor left.' do
+    expect(page).to have_content('I like this post')
+    expect(page).to have_content('me too!')
+  end
 end

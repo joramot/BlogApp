@@ -35,4 +35,28 @@ describe 'Users Post Index', type: :feature do
   scenario "I can see some of the post's body" do
     expect(page).to have_content('I am a player in the youth category for the Linces FBA team.')
   end
+
+  scenario 'I can see the first comments on a post' do
+    expect(page).to have_content('I like this post')
+  end
+
+  scenario 'I can see how many comments a post has' do
+    expect(page).to have_content('Comments: 2')
+  end
+
+  scenario 'I can see how many likes a post has' do
+    expect(page).to have_content('Likes: 2')
+  end
+
+  scenario "When I click on a post, it redirects me to that post's show page" do
+    click_on('My life in football')
+    expect(page).to have_content('I am a player in the youth category for the Linces FBA team.')
+  end
+
+  scenario 'I can see the pagination if there are more then 3 posts but not if I have less' do
+    expect(page).to have_no_content('See all posts')
+    @post4 = Post.create(author_id: @author1.id, title: 'The way of the Fire', text: 'Fire is the way of the strong')
+    click_on('Back')
+    expect(page).to have_content('See all posts')
+  end
 end
