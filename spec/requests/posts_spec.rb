@@ -5,18 +5,17 @@ require 'pry'
 describe 'Posts', type: :request do
   # binding.pry
   let!(:user) { User.create(name: 'Emi', photo: 'https://picsum.photos/100', bio: 'Football player') }
-  let!(:post) do Post.create(author_id: user.id, title: 'My life in football',
-            text: 'I am a player in the youth category for the Linces FBA team in the receiver position.')
+  let!(:post) do
+    Post.create(author_id: user.id, title: 'My life in football',
+                text: 'I am a player in the youth category for the Linces FBA team in the receiver position.')
   end
   describe 'GET #index' do
-  before :each do
-    get user_posts_path(user.id)
+    before :each do
+      get user_posts_path(user.id)
     end
 
     # If response status was correct.
     it 'returns http success' do
-
-
       expect(response).to have_http_status(:success)
     end
 
@@ -27,7 +26,6 @@ describe 'Posts', type: :request do
 
     # If the response body includes correct placeholder text.
     it 'check if the response body includes the correct placeholder text' do
-
       # binding.pry
 
       expect(response.body).to include('My life in football')

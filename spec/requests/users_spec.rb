@@ -3,7 +3,6 @@ require 'rails_helper'
 require 'pry'
 
 describe 'Users', type: :request do
-
   let!(:user) { User.create(name: 'Peter', photo: 'https://picsum.photos/100', bio: 'Football player') }
   let!(:post) do
     Post.create(title: 'My life in football', text: 'I am a player in the youth category for the Linces FBA team.',
