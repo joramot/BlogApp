@@ -47,4 +47,10 @@ describe 'Users Show', type: :feature do
     expect(page).to have_content('Receiver wing position')
     expect(page).to have_content('Next season')
   end
+
+  scenario "When I click to see all posts, it redirects me to the user's post's index page" do
+    find('a', text: 'See all posts').click
+
+    expect(page).to have_current_path(user_posts_path(user.id))
+  end
 end
