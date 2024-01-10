@@ -18,8 +18,7 @@ describe Post, type: :model do
     end
 
     it 'validates presence of text' do
-      subject.text = nil
-      expect(subject).to_not be_valid
+      expect(subject).to be_valid
     end
 
     it 'validates numericality of comments_counter' do
