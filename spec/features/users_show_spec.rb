@@ -7,7 +7,7 @@ describe 'Users Show', type: :feature do
 
   let! :post1 do
     Post.create(author_id: user.id, title: 'My life in football',
-                text: 'I am a player in the youth category for the Linces FBA team in the receiver position.')
+                text: 'I am a player in the youth category for the Linces FBA team.')
   end
 
   let! :post2 do
@@ -43,6 +43,23 @@ describe 'Users Show', type: :feature do
   end
 
   scenario "I can see the user's first 3 posts" do
+    expect(page).to have_content('My life in football')
+    expect(page).to have_content('Receiver wing position')
+    expect(page).to have_content('Next season')
+  end
+
+  scenario "I can see a button that lets me view all of a user's posts." do
+    expect(page).to have_link('View all posts')
+  end
+
+  scenario "When I click a user's post, it redirects me to that post's show page." do
+    click_link 'My life in football'
+    expect(page).to have_content('My life in football')
+    expect(page).to have_content('I am a player in the youth category for the Linces FBA team.')
+  end
+
+  scenario "When I click to see all posts, it redirects me to the user's post's index page." do
+    click_link 'View all posts'
     expect(page).to have_content('My life in football')
     expect(page).to have_content('Receiver wing position')
     expect(page).to have_content('Next season')
