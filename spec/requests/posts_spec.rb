@@ -1,9 +1,6 @@
 require 'rails_helper'
 
-require 'pry'
-
 describe 'Posts', type: :request do
-  # binding.pry
   let!(:user) { User.create(name: 'Emi', photo: 'https://picsum.photos/100', bio: 'Football player') }
   let!(:post) do
     Post.create(author_id: user.id, title: 'My life in football',
@@ -26,8 +23,6 @@ describe 'Posts', type: :request do
 
     # If the response body includes correct placeholder text.
     it 'check if the response body includes the correct placeholder text' do
-      # binding.pry
-
       expect(response.body).to include('My life in football')
     end
   end
