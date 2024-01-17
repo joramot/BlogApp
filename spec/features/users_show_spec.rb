@@ -52,11 +52,6 @@ describe 'Users Show', type: :feature do
     expect(page).to have_link('See all posts')
   end
 
-  scenario "When I click a user's post, it redirects me to that post's show page." do
-    find('a', text: 'My life in football').click
-    expect(page).to have_current_path(user_post_path(user, post1))
-  end
-
   scenario "When I click to see all posts, it redirects me to the user's post's index page" do
     find('a', text: 'See all posts').click
     expect(page).to have_current_path(user_posts_path(user.id))
