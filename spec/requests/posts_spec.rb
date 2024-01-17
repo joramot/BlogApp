@@ -23,7 +23,7 @@ describe 'Posts', type: :request do
 
     # If the response body includes correct placeholder text.
     it 'check if the response body includes the correct placeholder text' do
-     expect(response.body).to include('My life in football')
+      expect(response.body).to include('My life in football')
     end
   end
 
