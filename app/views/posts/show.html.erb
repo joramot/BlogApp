@@ -24,4 +24,7 @@
     <%= f.submit "Add Like" ,class: 'btn btn-primary ms-2'%>
     <% end %>
     <%= link_to "Comment", new_user_post_comment_path(user_id: @post.author, post_id: @post.id), class:'btn btn-success ms-2' %>
+    <% if can?(:destroy, @post) %>
+    <%= button_to 'Delete Post', user_post_path(@user, @post), method: :delete, data: { confirm: "Are you sure you want to delete this post?"}, class: 'btn btn-danger' %>
+  <% end %>
 </div>
