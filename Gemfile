@@ -79,3 +79,6 @@ end
 
 gem 'bootstrap', '~> 5.0'
 gem 'bootstrap_form', '~> 5.2'
+
+gem 'devise', '~> 4.9'
+gem 'faker', '~> 2.18'
