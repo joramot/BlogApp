@@ -21,5 +21,4 @@ class User < ApplicationRecord
   def is?(role)
     self.role == role.to_s
   end
-  
 end
