@@ -17,4 +17,9 @@ class User < ApplicationRecord
   def posts_counter
     posts.count
   end
+
+  def is?(role)
+    self.role == role.to_s
+  end
+  
 end
