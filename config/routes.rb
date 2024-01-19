@@ -5,8 +5,8 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
     }
     resources :users, only: [:index, :show] do
-      resources :posts, only: [:index, :new, :create, :show] do
-        resources :comments, only: [:create, :new]
+      resources :posts, only: [:index, :new, :create, :show, :destroy] do
+        resources :comments, only: [:create, :new, :destroy]
         resources :likes, only: [:create]
       end
     end
